@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+    node:
+      image: node:18-alpine
+      working_dir: /app
+      volumes:
+        - ./:/app
+    client:
+      image: node:18-alpine
+      working_dir: /app
+      ports:
+         - '3000:3000' # Port mapping
+      container_name: next-client-ui
+      command: >
+         sh -c "npm run dev"
+      volumes:
+        - ./:/app

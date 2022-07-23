@@ -10,6 +10,14 @@ stop:docker() {
     docker-compose stop client
 }
 
+build() {
+   npm run build
+}
+
+build:docker() {
+   docker-compose run --rm node sh -c "npm run build"
+}
+
 clean() {
     docker rm --force next-client-ui
 }
@@ -23,6 +31,12 @@ do
   case $param in
     install)
       install
+      ;;
+    build)
+      build
+      ;;
+    build:docker)
+      build:docker
       ;;
     start)
       start

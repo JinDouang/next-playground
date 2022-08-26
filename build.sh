@@ -1,3 +1,5 @@
+#!/bin/bash
+
 install() {
     docker-compose run --rm node sh -c "npm install"
 }

@@ -1,206 +1,111 @@
 import Link from 'next/link';
-// import { navLinks } from '../../data/navLinks';
 
 type Props = {
     children?: React.ReactNode;
+    className?: string;
 };
 
-export const Navbar = ({children}:Props) => {
+export const Navbar = ({children, className}: Props) => {
   return (
-    <nav
-    className="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
-  >
-    <div className="container-fluid w-full flex flex-wrap items-center justify-between px-6">
-      <button
-        className="navbar-toggler text-gray-200 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent1"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          data-prefix="fas"
-          data-icon="bars"
-          className="w-6"
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"
-        >
-          <path
-            fill="currentColor"
-            d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-          ></path>
-        </svg>
-      </button>
-      <div className="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent1">
-        <a className="text-xl text-white pr-2 font-semibold" href="#">Navbar</a>
-        {/* <!-- Left links --> */}
-        <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
-          <li className="nav-item p-2">
-            <a className="nav-link text-white" href="#">Dashboard</a>
-          </li>
-          <li className="nav-item p-2">
-            <a
-              className="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
-              href="#"
-              >Team</a
-            >
-          </li>
-          <li className="nav-item p-2">
-            <a
-              className="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
-              href="#"
-              >Projects</a
-            >
-          </li>
-        </ul>
-        {/* <!-- Left links --> */}
-      </div>
-      {/* <!-- Collapsible wrapper --> */}
-  
-      {/* <!-- Right elements --> */}
-      <div className="flex items-center relative">
-        {/* <!-- Icon --> */}
-        <a className="text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4" href="#">
-          <svg
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fas"
-            data-icon="shopping-cart"
-            className="w-4"
-            role="img"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 576 512">
-            <path
-              fill="currentColor"
-              d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"
-            ></path>
-          </svg>
-        </a>
-        <div className="dropdown relative">
-          <a
-            className="text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4 dropdown-toggle hidden-arrow flex items-center"
-            href="#"
-            id="dropdownMenuButton1"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="bell"
-              className="w-4"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512">
-              <path
-                fill="currentColor"
-                d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z"
-              ></path>
-            </svg>
-            <span
-              className="text-white bg-red-700 absolute rounded-full text-xs -mt-2.5 ml-2 py-0 px-1.5"
-              >1</span
-            >
-          </a>
-          <ul
-            className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
-            aria-labelledby="dropdownMenuButton1"
-          >
-            <li>
-              <a
-                className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                href="#"
-                >Action</a
-              >
-            </li>
-            <li>
-              <a
-                className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                href="#"
-                >Another action</a
-              >
-            </li>
-            <li>
-              <a
-                className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                href="#"
-                >Something else here</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div className="dropdown relative">
-          <a
-            className="dropdown-toggle flex items-center hidden-arrow"
-            href="#"
-            id="dropdownMenuButton2"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img
-              src="https://mdbootstrap.com/img/new/avatars/2.jpg"
-              className="rounded-full"
-              style={{height: 25, width: 25}}
-              alt=""
-              loading="lazy"
-            />
-          </a>
-          <ul
-            className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
-            aria-labelledby="dropdownMenuButton2"
-          >
-            <li>
-              <a
-                className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                href="#"
-                >Action</a
-              >
-            </li>
-            <li>
-              <a
-                className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                href="#"
-                >Another action</a
-              >
-            </li>
-            <li>
-              <a
-                className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                href="#"
-                >Something else here</a
-              >
-            </li>
-          </ul>
+    <nav className={`bg-gray-800 ${className}`}>
+      <div className="mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="relative flex items-center justify-between h-16">
+          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            {/* <!-- Mobile menu button--> */}
+            <button type="button" className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+              <span className="sr-only">Open main menu</span>
+              {/* <!--
+                Icon when menu is closed.
+    
+                Heroicon name: outline/bars-3
+    
+                Menu open: "hidden", Menu closed: "block"
+              --{'>'} */}
+              <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              {/* <!--
+                Icon when menu is open.
+    
+                Heroicon name: outline/x-mark
+    
+                Menu open: "block", Menu closed: "hidden"
+              --> */}
+              <svg className="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex-shrink-0 flex items-center">
+              <img className="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=500" alt="Workflow"/>
+              <img className="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=500" alt="Workflow"/>
+            </div>
+            <div className="hidden sm:block sm:ml-6">
+              <div className="flex space-x-4">
+                {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
+                <a href="#" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
+    
+                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+    
+                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+    
+                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+              </div>
+            </div>
+          </div>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <button type="button" className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <span className="sr-only">View notifications</span>
+              {/* <!-- Heroicon name: outline/bell --> */}
+              <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+              </svg>
+            </button>
+    
+            {/* <!-- Profile dropdown --> */}
+            <div className="ml-3 relative">
+              <div>
+                <button type="button" className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                  <span className="sr-only">Open user menu</span>
+                  <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+                </button>
+              </div>
+    
+              {/* <!--
+                Dropdown menu, show/hide based on menu state.
+    
+                Entering: "transition ease-out duration-100"
+                  From: "transform opacity-0 scale-95"
+                  To: "transform opacity-100 scale-100"
+                Leaving: "transition ease-in duration-75"
+                  From: "transform opacity-100 scale-100"
+                  To: "transform opacity-0 scale-95"
+              --> */}
+              <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabIndex="-1">
+                {/* <!-- Active: "bg-gray-100", Not Active: "" --> */}
+                <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" id="user-menu-item-0">Your Profile</a>
+                <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" id="user-menu-item-1">Settings</a>
+                <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" id="user-menu-item-2">Sign out</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      {/* Right elements  */}
-    </div>
-  </nav>
+    
+      {/* <!-- Mobile menu, show/hide based on menu state. --> */}
+      <div className="sm:hidden" id="mobile-menu">
+        <div className="px-2 pt-2 pb-3 space-y-1">
+          {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
+          <a href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
+    
+          <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+    
+          <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+    
+          <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+        </div>
+      </div>
+    </nav>
   );
 }
-{/* export default Navbar */}
-
-
-// const Navbar = ({children}:Props) => {
-//   return (
-//     <nav>
-//       {navLinks.map((link: {path: string, name: string}, index: number) => {
-//         return (
-//           <ul>
-//             <Link href={link.path}>
-//               <li key={index}>{link.name}</li>
-//             </Link>
-//           </ul>
-//         );
-//       })}
-//     </nav>
-//   );
-// }
-// export default Navbar

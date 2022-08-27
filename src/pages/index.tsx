@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { ReactElement } from 'react'
-import { MenuContainerLayout } from '../layouts/MenuContainerLayout'
+import { MenuContainerLayout } from '../layouts/MenuContainerLayout/MenuContainerLayout'
 import styles from '../styles/Home.module.scss'
 import { NextPageWithLayout } from './_app'
 

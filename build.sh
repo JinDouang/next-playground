@@ -8,6 +8,10 @@ start:docker() {
     docker-compose up -d client
 }
 
+run:dev:docker() {
+    docker-compose up client
+}
+
 stop:docker() {
     docker-compose stop client
 }
@@ -21,7 +25,7 @@ build:docker() {
 }
 
 clean() {
-    docker rm --force next-client-ui
+    docker rm --force next-client-ui && docker-compose down
 }
 
 start() {
@@ -45,6 +49,12 @@ do
       ;;
     start:docker)
       start:docker
+      ;;
+    run:dev:docker)
+      run:dev:docker
+      ;;
+    rdd)
+      run:dev:docker
       ;;
     stop:docker)
       stop:docker

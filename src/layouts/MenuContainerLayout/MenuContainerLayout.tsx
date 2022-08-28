@@ -1,12 +1,11 @@
-import { Navbar } from "../Navbar";
-import styles from '../MenuContainerLayout/MenuContainerLayout.module.scss'
+import { Navbar } from "../Navbar/Navbar";
+import styles from './MenuContainerLayout.module.scss'
 
 type Props = {
   children?: React.ReactNode;
 };
 
 export const MenuContainerLayout = ({children}:Props) => {
-  console.log("style: ", styles);
   return (
     <>
       <Navbar className={styles['menu-container-layout']}/>

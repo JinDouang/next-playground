@@ -1,0 +1,38 @@
+.widget-card {
+  @apply flex-1;
+  :global { // ALLOW TO USE CLASSES WITHOUT STYLES
+    .container {
+      @apply flex justify-between bg-white rounded-2xl drop-shadow;
+      &.active {
+        @apply flex-col h-36 border-4;
+      }
+      &.idle {
+        @apply flex-1 h-28 cursor-pointer;
+      }
+      &-content {
+        @apply flex flex-col justify-center;
+        &.active {
+          @apply flex-1 items-center mx-2;
+        }
+        &.idle {
+          @apply ml-4;
+        }
+        &-title {
+          @apply text-lg line-clamp-2;
+          &.active {
+            @apply text-center;
+          }
+        }
+      }
+      &-expand {
+        @apply flex justify-center items-center;
+        &.active {
+          @apply w-full h-8  rounded-b-lg;
+        }
+        &.idle {
+          @apply w-8 h-full rounded-r-2xl;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+name: dev-check-repository
+
+on: [push]
+
+jobs:
+  runNode:
+    runs-on: ubuntu-latest
+
+    container:
+      image: node:18-alpine
+      options: --user root -v ${{ github.workspace }}:/home/node/:rw
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run npm install
+        run: yarn install
+      - name: Run lint
+        run: yarn run lint
+      - name: Run build
+        run: yarn run build

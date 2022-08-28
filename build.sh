@@ -1,35 +1,37 @@
 #!/bin/bash
 
 install() {
-    docker-compose run --rm node sh -c "npm install"
+    docker-compose run --rm node sh -c "yarn install"
 }
 
-start:docker() {
-    docker-compose up -d client
+run:dev:docker:build() {
+   clean;
+   sleep 2;
+   docker-compose up -d --build
 }
 
 run:dev:docker() {
-    docker-compose up client
+    docker-compose up -d
 }
 
-stop:docker() {
-    docker-compose stop client
+stop() {
+    docker-compose stop
 }
 
 build() {
-   npm run build
+  docker-compose run --rm node sh -c "yarn run build"
 }
 
-build:docker() {
-   docker-compose run --rm node sh -c "npm run build"
+lint() {
+  docker-compose run --rm node sh -c "yarn run lint"
 }
 
 clean() {
-    docker rm --force next-client-ui && docker-compose down
+   docker-compose down && docker rmi nextplayground_web-dev &
 }
 
-start() {
-    npm run dev
+logs() {
+   docker logs -f next-playground --since 0s;
 }
 
 for param in "$@"
@@ -41,26 +43,20 @@ do
     build)
       build
       ;;
-    build:docker)
-      build:docker
-      ;;
-    start)
-      start
-      ;;
-    start:docker)
-      start:docker
-      ;;
-    run:dev:docker)
-      run:dev:docker
-      ;;
-    rdd)
-      run:dev:docker
-      ;;
-    stop:docker)
-      stop:docker
-      ;;
     clean)
       clean
+      ;;
+    stop)
+      stop
+      ;;
+    lint)
+      lint
+      ;;
+    logs)
+      logs
+      ;;
+    new)
+      echo -e "Calling within argument 'new' \n"
       ;;
     *)
       echo "Invalid argument : $param"

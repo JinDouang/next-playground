@@ -1,18 +1,20 @@
-version: '3.5'
+version: '2'
 
 services:
-    node:
-      image: node:18-alpine
-      working_dir: /app
-      volumes:
-        - ./:/app
-    client:
-      image: node:18-alpine
-      working_dir: /app
-      ports:
-         - '3000:3000' # Port mapping
-      container_name: next-client-ui
-      command: >
-         sh -c "npm run dev"
-      volumes:
-        - ./:/app
+  node:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+  web-dev:
+    build:
+      context: .
+      dockerfile: ./development/Dockerfile
+    container_name: next-playground
+    restart: always
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "4200:4200"

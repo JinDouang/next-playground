@@ -3,26 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_ENV=local next -p 4200",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.2.0",
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@reduxjs/toolkit": "^1.9.1",
+    "html-react-parser": "^3.0.8",
+    "moment": "^2.29.4",
+    "next": "13.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.53.0"
+    "react-iframe": "1.8.5",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.0",
+    "sass": "1.57.1"
   },
   "devDependencies": {
-    "@types/node": "18.0.3",
-    "@types/react": "18.0.15",
+    "@redux-devtools/core": "^3.13.1",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@types/node": "18.7.9",
+    "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
     "autoprefixer": "^10.4.7",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.5",
+    "postcss": "8.4.21",
+    "tailwindcss": "3.2.4",
     "typescript": "4.7.4"
   }
 }

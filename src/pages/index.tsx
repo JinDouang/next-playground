@@ -1,9 +1,11 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { ReactElement } from 'react'
+import { MenuContainerLayout } from '../layouts/MenuContainerLayout/MenuContainerLayout'
 import styles from '../styles/Home.module.scss'
+import { NextPageWithLayout } from './_app'
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = (): ReactElement => {
   return (
     <div className={styles.container}>
          <h1 className="text-3xl font-bold underline">
@@ -69,6 +71,14 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
+  )
+}
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <MenuContainerLayout>
+      {page}
+    </MenuContainerLayout>
   )
 }
 
